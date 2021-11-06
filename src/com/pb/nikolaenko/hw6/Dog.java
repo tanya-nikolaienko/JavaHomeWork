@@ -6,9 +6,12 @@ public class Dog extends Animal{
     private String variable;
     private String name;
 
-    public String getVariable() { return variable;    }
 
-    public void setVariable(String variable) { this.variable = variable; }
+
+
+
+  public String getVariable() { return variable;    }
+   public void setVariable(String variable) { this.variable = variable; }
 
 
 
@@ -26,6 +29,7 @@ public class Dog extends Animal{
         System.out.println ( "--- класс Собака ---");
         System.out.println("Кличка: " + getName() +"; Среда обитания: " + getLocation() + " ; " + "Еда: "+ getFood());
         System.out.println("Порода собаки:" + variable);
+
     }
 
     @Override
@@ -50,18 +54,21 @@ public class Dog extends Animal{
         if (o == null || getClass() != o.getClass()) return false;
         Dog dog = (Dog) o;
         return Objects.equals(variable, dog.variable) && Objects.equals(name, dog.name);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(variable, name);
+      return Objects.hash(variable, name);
+
     }
 
     @Override
     public String toString() {
         return "Dog{" +
-                "variable='" + variable + '\'' +
-                ", name='" + name + '\'' +
+          //      "variable='" + variable + '\'' +
+                "Порода='" + variable + '\'' +
+                ", Имя='" + name + '\'' +
                 '}';
     }
 }

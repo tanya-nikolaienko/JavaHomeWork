@@ -9,6 +9,7 @@ public class VetClinic {
         Cat cat = new Cat();
         Horse horse = new Horse();
 
+        //dog.setVariable("Ризеншнауцер");
         dog.setVariable("Ризеншнауцер");
         dog.setPet("Собака");
         dog.setName("Аврора");
