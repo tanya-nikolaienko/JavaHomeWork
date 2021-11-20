@@ -6,16 +6,16 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class OnlineShop {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws WrongLoginException, WrongPasswordException {
         while (true) {
             System.out.println("-------Что вы хотите сделать?-------");
-            System.out.println("Для входа на сайт нажмите 1. Для регистрации нажмите 2. Выход - нажмите 3");
+            System.out.println("Для входа на сайт нажмите - 1. **** Для регистрации - нажмите 2. **** Для выхода - нажмите 3 ");
             System.out.println("Введите цифру: ");
             Scanner sc = new Scanner(System.in);
             AuthUser au = new AuthImpl();
             String choice = sc.nextLine();
 
-            int length =20;// для обозначения длины массива
+
             int flags = 0; //для выхода из цикла for в регистрации
             int flagz = 0;// для выхода из цикла for
 
@@ -44,10 +44,10 @@ public class OnlineShop {
                     char[] ch = newlogin.toCharArray();  //блок проверок логина
 
                     if(ch.length<5 || ch.length>20) {
-                        System.out.println("Некорректная длина логина (меньше 5 или больше 20 символов)");
-                    return;}
-                    //l = newlogin.length();
-                    //ch.length = 20; // устанавливает длину массива 20.
+                     throw new WrongLoginException("Некорректная длина логина (меньше 5 или больше 20 символов)");
+
+                    }
+
                     for (int i = 0; i < 1; i++) {
                         if ((ch[i] >= 'a' && ch[i] <= 'z') || (ch[i] >= 'A' && ch[i] <= 'Z') ||(ch[i] >= '0' && ch[i] <= '9')) {
                             flags = 0;
@@ -58,8 +58,8 @@ public class OnlineShop {
                     }
 
                     if (flags != 0) {
-                        System.out.println("Нельзя использовать символы кирилицы");
-                        System.exit(0);
+                       System.out.println("Нельзя использовать символы кирилицы");
+                       System.exit(0);
                     }
 
 
@@ -83,8 +83,9 @@ public class OnlineShop {
                     }
 
                     if (flagz != 0) {
-                        System.out.println("Нельзя использовать в пароле символы кирилицы");
-                        System.exit(0);
+                        throw new WrongPasswordException("Пользователь ввел символы кирилицы");
+                       // System.out.println("Нельзя использовать в пароле символы кирилицы");
+                        //System.exit(0);
                     }
 
 
