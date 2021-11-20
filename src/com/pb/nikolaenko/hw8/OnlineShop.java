@@ -32,7 +32,8 @@ public class OnlineShop {
                         System.out.println("Успешный вход");
                         System.exit(0);
                     } else {
-                        System.out.println("Неверное имя пользователя или пароль, вход не выполнен");
+                        //System.out.println("Неверное имя пользователя или пароль, вход не выполнен");
+                        throw new WrongLoginException("Неверное имя пользователя или пароль, вход не выполнен");
                     }
                     break;
                 case "2":
