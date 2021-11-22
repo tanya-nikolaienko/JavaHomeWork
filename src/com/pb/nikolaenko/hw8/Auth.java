@@ -9,6 +9,7 @@ public class Auth {
 
     public Auth(){
     }
+   // public boolean matches(String regexp);
 
     public String getLogin() {
         return Login;

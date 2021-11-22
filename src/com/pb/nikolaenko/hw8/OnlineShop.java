@@ -51,6 +51,7 @@ public class OnlineShop {
 
                     for (int i = 0; i < 1; i++) {
                         if ((ch[i] >= 'a' && ch[i] <= 'z') || (ch[i] >= 'A' && ch[i] <= 'Z') ||(ch[i] >= '0' && ch[i] <= '9')) {
+
                             flags = 0;
                              // System.out.println("Результат проверки: Корректный логин (латиница +цифры)");
                         } else
